@@ -1,0 +1,10 @@
+In a real app, we would have actual authentication with the app itself, probably with JWT tokens, and the `contacts.Customer` model would have a `user` field tied to the `User` model, instead of just a `username` text field
+This is just a demo, so I skipped that
+
+For now, I'm stuffing the new contacts into the first lead that gets returned in the Get Leads request.  In a real environment, I would check if a relevant lead exists, creating one if it doesn't, and then create the contact for that lead.  For demo, handwaived
+
+Not dealing with rate limits or pagination, it's something that might maybe feasibly come up in production (pagination at least, hitting rate limits for an integration is questionable)
+
+In a real environment, I might consider doing something with the requests library to refresh on unauthorized response codes for all relevant integration requests (and automate headers creation, maybe), but for now handling each one individually is fine
+
+disabled csrf
